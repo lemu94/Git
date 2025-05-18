@@ -13,10 +13,10 @@ console.error("Logs from your program will appear here!");
     break;
 
     case "cat-file":
-        const arg = process.arg(3)
-        const filePath = process.arg[4];
+        const arg = process.argv(3)
+        const filePath = process.argv[4];
         if(arg == "-p"){
-        fs.readFile('fichier.txt.gz', (err, buffer) => {
+        fs.readFile(filePath, (err, buffer) => {
           if (err) throw err;
             zlib.gunzip(buffer, (err, result) => {
             if (err) throw err;
