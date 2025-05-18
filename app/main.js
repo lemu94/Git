@@ -15,8 +15,10 @@ console.error("Logs from your program will appear here!");
     case "cat-file":
         const arg = process.argv[3]
         const filePath = process.argv[4];
+        const getDir = filePath.substring(0,1);
+        console.log(getDir)
         if(arg == "-p"){
-        fs.readFile(`.git/objects/${filePath}`, (err, buffer) => {
+        fs.readFile(`.git/objects/${getDir}/${filePath}`, (err, buffer) => {
           if (err) throw err;
             zlib.gunzip(buffer, (err, result) => {
             if (err) throw err;
