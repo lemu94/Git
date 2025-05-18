@@ -28,9 +28,17 @@ console.error("Logs from your program will appear here!");
           if (err) throw err;
             zlib.inflate(buffer, (err, result) => {
             if (err)  throw err;
-              const contenu = result.toString('utf8');
+                const idx = result.indexOf(0); // 0 = '\x00'
+
+              if (idx === -1) {
+                  console.error("Format inconnu !");
+                  return;
+               }
+
+              // Récupère uniquement le contenu après le \x00
+              const contenu = result.slice(idx + 1).toString('utf8');
               console.log(contenu);
-            });
+              });
           });
         }
 
