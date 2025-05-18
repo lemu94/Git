@@ -35,7 +35,7 @@ console.error("Logs from your program will appear here!");
 
               // Récupère uniquement le contenu après le \x00
               const contenu = result.slice(idx + 1).toString('utf8');
-              const contenuNettoye = contenu.replace(/[\r\n]+$/, '');
+              const contenuNettoye = contenu.trimEnd();
               console.log(contenuNettoye);
               });
           });
