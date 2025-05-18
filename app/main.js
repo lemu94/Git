@@ -18,7 +18,6 @@ console.error("Logs from your program will appear here!");
         const blobName = process.argv[4];
         const nbCharBlob =process.argv[4].length;
         const nbCharDir = (nbCharBlob - nbCharForName);
-        // process.arg[4].length;
         const getDir = blobName.substring(0,nbCharDir);
         const nameFilePath = blobName.substring(nbCharDir);
         console.log(getDir)
@@ -27,8 +26,8 @@ console.error("Logs from your program will appear here!");
         if(arg == "-p"){
         fs.readFile(`.git/objects/${getDir}/${nameFilePath}`, (err, buffer) => {
           if (err) throw err;
-            zlib.gunzip(buffer, (err, result) => {
-            if (err) throw err;
+            zlib.inflate(buffer, (err, result) => {
+            if (err)  throw err;
               const contenu = result.toString('utf8');
               console.log(contenu);
             });
