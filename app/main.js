@@ -13,7 +13,7 @@ console.error("Logs from your program will appear here!");
     break;
 
     case "cat-file":
-        const arg = process.argv(3)
+        const arg = process.argv[2]
         const filePath = process.argv[4];
         if(arg == "-p"){
         fs.readFile(filePath, (err, buffer) => {
