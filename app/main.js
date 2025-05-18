@@ -20,7 +20,7 @@ console.error("Logs from your program will appear here!");
         const nbCharDir = (nbCharBlob - nbCharForName);
         // process.arg[4].length;
         const getDir = blobName.substring(0,nbCharDir);
-        const nameFilePath = blobName.substring(nbCharDir - 1);
+        const nameFilePath = blobName.substring(nbCharDir);
         console.log(getDir)
         console.log(nameFilePath)
 
