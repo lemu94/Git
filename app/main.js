@@ -15,8 +15,7 @@ console.error("Logs from your program will appear here!");
     case "cat-file":
         const arg = process.argv[3]
         const filePath = process.argv[4];
-        const getDir = filePath.substring(0,1);
-        console.log(getDir)
+        const getDir = filePath.substring(0,2);
         if(arg == "-p"){
         fs.readFile(`.git/objects/${getDir}/${filePath}`, (err, buffer) => {
           if (err) throw err;
