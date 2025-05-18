@@ -1,4 +1,5 @@
 const fs = require("fs");
+const zlib = require('zlib');
 const path = require("path");
 
 // You can use print statements as follows for debugging, they'll be visible when running tests.
@@ -10,6 +11,23 @@ console.error("Logs from your program will appear here!");
    case "init":
         createGitDirectory();
     break;
+
+    case "cat-file":
+        const arg = process.arg(3)
+        const filePath = process.arg[4];
+        if(arg == "-p"){
+        fs.readFile('fichier.txt.gz', (err, buffer) => {
+          if (err) throw err;
+            zlib.gunzip(buffer, (err, result) => {
+            if (err) throw err;
+              const contenu = result.toString('utf8');
+              console.log(contenu);
+            });
+          });
+        }
+
+    break;
+
     default:
         throw new Error(`Unknown command ${command}`);
  }
