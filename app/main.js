@@ -16,7 +16,7 @@ console.error("Logs from your program will appear here!");
         const nbCharForName = 38;
         const arg = process.argv[3]
         const blobName = process.argv[4];
-        const nbCharBlob =process.arg[4].length;
+        const nbCharBlob =process.argv[4].length;
         const nbCharDir = (nbCharBlob - nbCharForName);
         // process.arg[4].length;
         const getDir = blobName.substring(0,nbCharDir);
