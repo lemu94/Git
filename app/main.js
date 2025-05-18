@@ -18,7 +18,7 @@ console.error("Logs from your program will appear here!");
         console.log(arg)
         console.log(filePath)
         if(arg == "-p"){
-        fs.readFile(filePath, (err, buffer) => {
+        fs.readFile(`.git/objects/${filePath}`, (err, buffer) => {
           if (err) throw err;
             zlib.gunzip(buffer, (err, result) => {
             if (err) throw err;
