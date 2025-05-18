@@ -20,8 +20,6 @@ console.error("Logs from your program will appear here!");
         const nbCharDir = (nbCharBlob - nbCharForName);
         const getDir = blobName.substring(0,nbCharDir);
         const nameFilePath = blobName.substring(nbCharDir);
-        console.log(getDir)
-        console.log(nameFilePath)
 
         if(arg == "-p"){
         fs.readFile(`.git/objects/${getDir}/${nameFilePath}`, (err, buffer) => {
